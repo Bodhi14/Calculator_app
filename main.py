@@ -53,8 +53,11 @@ class MainApp(App):
 
         if button_text == "C":
             self.solution.text = ""
+<<<<<<< HEAD
         else:
             if current and (
                 self.last_was_operator and button_text in self.operators):
                 return
             elif current == "" and button_text in self.operators:
+                return
+
