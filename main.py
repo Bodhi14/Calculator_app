@@ -58,4 +58,3 @@ class MainApp(App):
                 self.last_was_operator and button_text in self.operators):
                 return
             elif current == "" and button_text in self.operators:
-                return
