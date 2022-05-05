@@ -66,6 +66,15 @@ class MainApp(App):
             self.last_was_operator = self.last_button in self.operators
 
 
+    def on_solution(self, instance):
+        text = self.solution.text
+        if text: # text is not null
+            solution = str(eval(self.solution.text))
+
+        self.solution.text = solution # updating our screen text
 
 
 
+if __name__ == "__main__":
+    app = MainApp()
+    app.run()
