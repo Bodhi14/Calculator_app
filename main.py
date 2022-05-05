@@ -59,5 +59,3 @@ class MainApp(App):
                 return
             elif current == "" and button_text in self.operators:
                 return
-
-
