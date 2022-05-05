@@ -5,8 +5,8 @@ from kivy.uix.textinput import TextInput
 
 
 class MainApp(App):
-    def build(self):
-        self.operators = ["/", "*", "+", "-"]
+    def build(self): # self is the constructor
+        self.operators = ["/", "*", "+", "-"] # where operator is an object of the class build
         self.last_was_operator = None
         self.last_button = None
 
@@ -14,7 +14,7 @@ class MainApp(App):
 
         self.solution = TextInput(background_color="black", foreground_color="white")
 
-        main_layout.add_widget(self.solution)
+        main_layout.add_widget(self.solution) # add_widget is an internal property of BoxLayout
 
         buttons = [
 
@@ -26,7 +26,7 @@ class MainApp(App):
         ]
 
         for row in buttons:
-            h_layout = BoxLayout()
+            h_layout = BoxLayout() # a row layout in the whole BoxLayout
             for label in row:
                 button = Button(
                     text=label, font_size=30, background_color="grey",
@@ -47,17 +47,25 @@ class MainApp(App):
 
         return main_layout
 
-    def on_button_press(self, instance):
+    def on_button_press(self, instance): # instance the value getting passed by clicking on the button
         current = self.solution.text
         button_text = instance.text
 
         if button_text == "C":
             self.solution.text = ""
-<<<<<<< HEAD
         else:
             if current and (
                 self.last_was_operator and button_text in self.operators):
                 return
             elif current == "" and button_text in self.operators:
                 return
+            else:
+                new_text = current + button_text
+                self.solution.text = new_text
+            self.last_button = button_text
+            self.last_was_operator = self.last_button in self.operators
+
+
+
+
 
