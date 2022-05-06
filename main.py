@@ -7,7 +7,7 @@ from kivy.uix.textinput import TextInput
 class MainApp(App):
     def build(self): # self is the constructor
         self.icon = "download.png"
-        self.operators = ["/", "*", "+", "-","M"] # where operator is an object of the class build
+        self.operators = ["/", "*", "+", "-"] # where operator is an object of the class build
         self.last_was_operator = None
         self.last_button = None
 
@@ -56,8 +56,16 @@ class MainApp(App):
         if button_text == "C":
             self.solution.text = ""
         elif button_text == "M":
-            current = self.solution.text
-            self.solution.text = "M"
+            text = self.solution.text
+            if text:
+                solution = str(eval(self.solution.text))
+                current = solution
+
+
+                self.solution.text = "M"
+
+
+
         else:
             if current and (
                 self.last_was_operator and button_text in self.operators):
